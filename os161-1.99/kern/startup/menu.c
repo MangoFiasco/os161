@@ -479,6 +479,18 @@ static const char *testmenu[] = {
 
 static
 int
+cmd_dth(int n , char **a)
+{
+	(void)n;
+	(void)a;
+
+	dbflags = 0x0010;
+
+	return 0;
+}
+
+static
+int
 cmd_testmenu(int n, char **a)
 {
 	(void)n;
@@ -504,6 +516,7 @@ static const char *mainmenu[] = {
 #endif /* UW */
 #endif
 	"[kh] Kernel heap stats              ",
+	"[dth] Thread debug",
 	"[q] Quit and shut down              ",
 	NULL
 };
@@ -559,6 +572,7 @@ static struct {
 
 	/* stats */
 	{ "kh",         cmd_kheapstats },
+	{ "dth",		cmd_dth},
 
 	/* base system tests */
 	{ "at",		arraytest },
